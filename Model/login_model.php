@@ -16,9 +16,11 @@ class login_model extends Model {
 
         $count = $sth->rowCount();
         if ($count > 0){
-
+            Session::init();
+            Session::set('loggedIn', true);
+            header('location: ../dashboard');
         } else {
-
+            header('location: ../login');
         }
     }
 }

@@ -8,11 +8,16 @@
     <title>Test</title>
 </head>
 <body>
+<?php //Session::init();?>
     <div id="header">
         header
         <br/>
         <a href="<?= URL;?>index">index</a>
         <a href="<?= URL;?>help">help</a>
-        <a href="<?= URL;?>login">login</a>
+        <?php if(Session::get('loggedIn') == true):?>
+            <a href="<?= URL;?>dashboard/logout">logout</a>
+        <?php else:?>
+            <a href="<?= URL;?>login">login</a>
+        <?php endif;?>
     </div>
     <div id="content">
